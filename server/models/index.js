@@ -6,24 +6,23 @@ CONECTAMOS A MYSQL DATABASE
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op;
 const sequelize = new Sequelize(
-  dbConfig.DB, 
-  dbConfig.USER, 
-  dbConfig.PASSWORD,
-  {
-    host: dbConfig.HOST,
-    dialect: 'mysql',
-    logging: false,
-    freezeTableName: true,
-    operatorsAliases: {
-      $and: Op.and,
-      $or: Op.or,
-      $eq: Op.eq,
-      $gt: Op.gt,
-      $lt: Op.lt,
-      $lte: Op.lte,
-      $like: Op.like
-    }
-})
+	dbConfig.DB, 
+	dbConfig.USER, 
+	dbConfig.PASSWORD,
+	{
+		host: dbConfig.HOST,
+		dialect: 'mysql',
+		logging: false,
+		freezeTableName: true,
+		operatorsAliases: false,
+
+		pool: {
+			max: dbConfig.pool.max,
+			min: dbConfig.pool.min,
+			acquire: dbConfig.pool.acquire,
+			idle: dbConfig.pool.idle
+		}
+	})
 
 const db = {};
 
