@@ -1,27 +1,11 @@
 const express = require('express');
-const path = require('path');
 
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
+const app = express();
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('./dist/angular-heroku'));
 
-
-app.use(express.static('./dist/<board-games-app.json>'));
-
-// simple route
-app.get('/*', function(req, res) {
-  res.sendFile(’index.html’, {root: 'dist/<board-games-app.json>/'}
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/angular-heroku/'}),
 );
-});
 
-//Include routes
-require("./app/routes/juego.routes")(app);
-
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
-
+app.listen(process.env.PORT || 8080);
