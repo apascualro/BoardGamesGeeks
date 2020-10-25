@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 //rutas
 import { JuegoListaComponent } from './components/juego/juego-lista/juego-lista.component';
