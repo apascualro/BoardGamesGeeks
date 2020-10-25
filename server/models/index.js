@@ -1,23 +1,29 @@
 const dbConfig = require("../config/dbconfig");
 
-const Sequelize = require("sequelize");
-
-
 /*=============================================
 CONECTAMOS A MYSQL DATABASE
 =============================================*/
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: 0,
-
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
-});
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op;
+const sequelize = new Sequelize(
+  dbConfig.DB, 
+  dbConfig.USER, 
+  dbConfig.PASSWORD,
+  {
+    host: dbConfig.HOST,
+    dialect: 'mysql',
+    logging: false,
+    freezeTableName: true,
+    operatorsAliases: {
+      $and: Op.and,
+      $or: Op.or,
+      $eq: Op.eq,
+      $gt: Op.gt,
+      $lt: Op.lt,
+      $lte: Op.lte,
+      $like: Op.like
+    }
+})
 
 const db = {};
 
