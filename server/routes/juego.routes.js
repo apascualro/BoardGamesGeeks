@@ -26,21 +26,3 @@ module.exports = app => {
 
   app.use('/api/juegos', router);
 };
-
-
-// const express = require('express');
-// const asyncHandler = require('express-async-handler');
-// const userCtrl = require('../controllers/juego.controller.js');
-
-// const router = express.Router();
-// module.exports = router;
-
-
-// router.route('/')
-//   .post(asyncHandler(insert));
-
-
-// async function insert(req, res) {
-//   let juego = await juegoCtrl.insert(req.body);
-//   res.json(juego);
-// }

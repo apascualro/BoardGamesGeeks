@@ -1,20 +1,18 @@
-const mysql = require('mysql');
-
-const mysqlConnection = mysql.createConnection({
+module.exports = {
   HOST: "us-cdbr-east-02.cleardb.com",
   USER: "bb20409b3c442a",
   PASSWORD: "d3c4ca14",
   DB: "heroku_586131980912611",
-  multipleStatements: true
-});
-
-mysqlConnection.connect(function (err) {
-  if (err) {
-    console.error(err);
-    return;
-  } else {
-    console.log('db is connected');
+  dialect: "mysql",
+  //   HOST: "localhost",  
+  // USER: "root",
+  // PASSWORD: "",
+  // DB: "testdb",
+  // dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
   }
-});
-
-module.exports = mysqlConnection;
+};

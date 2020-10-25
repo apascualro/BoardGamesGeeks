@@ -3,7 +3,7 @@ const express = require('express');
 const httpError = require('http-errors');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const config = require('./config');
+const config = require('./server/config');
 
 const app = express();
 
