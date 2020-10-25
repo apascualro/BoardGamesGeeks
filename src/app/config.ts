@@ -1,5 +1,5 @@
 export let Ruta = {
 
-	url: 'http://localhost:4000'
+	url: 'https://heroku-angular-25.herokuapp.com/juegos'
 
 }
