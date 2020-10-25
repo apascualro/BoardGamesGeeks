@@ -1,15 +1,22 @@
-module.exports = (sequelize, Sequelize) => {
+
+module.exports = (sequelize, DataTypes) => {
   const Juego = sequelize.define("juego", {
     nombre: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     subtitulo: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     es_activo: {
-      type: Sequelize.BOOLEAN
+      type: DataTypes.TINYINT
+    },
+    createdAt: {
+      type: DataTypes.DATE
+    },
+    updatedAt: {
+      type: DataTypes.DATE
     }
   });
 

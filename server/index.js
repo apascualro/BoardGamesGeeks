@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { Sequelize } = require('sequelize');
 
 const app = express();
 
@@ -10,11 +11,11 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// app.use(cors());
+ // app.use(cors());
 
 //sync database
 const db = require("./models");
-db.sequelize.sync();
+// db.sequelize.sync();
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -23,11 +24,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // // simple route
-app.use(express.static('./dist/board-games-app'));
+// app.use(express.static('./dist/board-games-app'));
 
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/board-games-app/'}),
-);
+// app.get('/*', (req, res) =>
+//     res.sendFile('index.html', {root: 'dist/board-games-app/'}),
+// );
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
 
 //Include routes
 require("./routes/juego.routes")(app);
