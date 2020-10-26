@@ -1,7 +1,9 @@
 module.exports = app => {
   const juegos = require("../controllers/juego.controller.js");
 
-  var router = require("express").Router();
+  const router = require("express").Router();
+
+  require('../middlewares/cors');
 
   // Create a new Tutorial
   router.post("/", juegos.create);
