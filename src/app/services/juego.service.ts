@@ -22,7 +22,7 @@ export class JuegoService {
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<any>{
-		return this.http.get('api/juegos/');
+		return this.http.get('api/juegos/', {responseType: 'text'});
 	}
 
 	get(id): Observable<any> {
