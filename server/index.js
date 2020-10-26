@@ -33,11 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route HEROKU
-app.use(express.static('./dist/board-games-app'));
+ app.use(express.static('./dist/board-games-app'));
 
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/board-games-app/'}),
-);
+// app.get('/*', (req, res) =>
+//     res.sendFile('index.html', {root: 'dist/board-games-app/'}),
+// );
 
 //Include routes
 require("./routes/juego.routes")(app);
