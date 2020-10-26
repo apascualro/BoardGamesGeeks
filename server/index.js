@@ -2,16 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { Sequelize } = require('sequelize');
+const path = require('path');
 
 const app = express();
 
-//puerto donde se ejecuta angular
-var corsOptions = {
-  origin: "https://git.heroku.com/andrea--herokuprova22.git"
-};
+// //puerto donde se ejecuta angular
+// var corsOptions = {
+//   origin: "https://git.heroku.com/andrea--herokuprova22.git"
+// };
 
-app.use(cors(corsOptions));
- // app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors());
 
 //sync database
 const db = require("./models");
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// simple route
+// simple route HEROKU
 app.use(express.static('./dist/board-games-app'));
 
 app.get('/*', (req, res) =>
@@ -32,6 +33,9 @@ app.get('/*', (req, res) =>
 // app.get("/", (req, res) => {
 //   res.json({ message: "Welcome to bezkoder application." });
 // });
+
+
+
 
 //Include routes
 require("./routes/juego.routes")(app);

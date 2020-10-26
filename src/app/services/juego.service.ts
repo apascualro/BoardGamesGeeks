@@ -3,43 +3,40 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //mismo port que en node.js
-import { Ruta } from '../config';
+const baseUrl = 'http://localhost:8080/api/juegos';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class JuegoService {
-	public url: string;
 
-	constructor(private http: HttpClient) { 
-		this.url = Ruta.url;
-	}
+	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<any> {
-		return this.http.get(this.url);
+		return this.http.get('api/juegos');
 	}
 
 	get(id): Observable<any> {
-		return this.http.get(`${this.url}/${id}`);
+		return this.http.get(`${baseUrl}/${id}`);
 	}
 
 	create(data): Observable<any> {
-		return this.http.post(this.url, data);
+		return this.http.post(baseUrl, data);
 	}
 
 	update(id, data): Observable<any> {
-		return this.http.put(`${this.url}/${id}`, data);
+		return this.http.put(`${baseUrl}/${id}`, data);
 	}
 
 	delete(id): Observable<any> {
-		return this.http.delete(`${this.url}/${id}`);
+		return this.http.delete(`${baseUrl}/${id}`);
 	}
 
 	deleteAll(): Observable<any> {
-		return this.http.delete(this.url);
+		return this.http.delete(baseUrl);
 	}
 
 	findByNombre(nombre): Observable<any> {
-		return this.http.get(`${this.url}?nombre=${nombre}`);
+		return this.http.get(`${baseUrl}?nombre=${nombre}`);
 	}
 }
