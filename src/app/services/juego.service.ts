@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //mismo port que en node.js
-const baseUrl = 'http://localhost:8081';
+const baseUrl = 'http://localhost:8081/api/juegos/';
 
 
 
@@ -14,8 +14,16 @@ export class JuegoService {
 
 	constructor(private http: HttpClient) { }
 
-	getAll(): Observable<any> {
-		return this.http.get('api/juegos');
+	getAll(): Observable<any>{
+		return this.http.get('api/juegos/', {responseType: 'text'}).pipe(
+			map(res => {
+				try{ 
+					return JSON.parse(res); 
+				} catch {
+					return null;
+				}
+			})
+			)
 	}
 
 	get(id): Observable<any> {
