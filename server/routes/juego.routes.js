@@ -1,7 +1,7 @@
 module.exports = app => {
   const juegos = require("../controllers/juego.controller.js");
 
-  const router = require("express").Router();
+  var router = require("express").Router();
 
   // const middlewareCors = require("../middlewares/cors.js");
 

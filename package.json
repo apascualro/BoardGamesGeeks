@@ -4,8 +4,7 @@
     "scripts": {
         "ng": "ng",
         "serve": "node server",
-        "start": "node ./server/index.js ",
-        // "start": "node ./server/index.js --proxy-conf proxy.conf.json",
+        "start": "node ./server/index.js --proxy-conf proxy.conf.json",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
