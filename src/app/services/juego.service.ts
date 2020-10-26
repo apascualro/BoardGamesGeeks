@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //mismo port que en node.js
-const baseUrl = 'http://localhost:8080/api/juegos';
+const baseUrl = 'http://localhost:8080/';
+
 
 @Injectable({
 	providedIn: 'root'

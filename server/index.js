@@ -38,12 +38,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.get('/*', (req, res) =>
 //     res.sendFile('index.html', {root: 'dist/board-games-app/'}),
 // );
-// app.get("/", (req, res) => {
-//   res.json({ message: "Welcome to bezkoder application." });
-// });
-
-
-
 
 //Include routes
 require("./routes/juego.routes")(app);
