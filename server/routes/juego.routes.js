@@ -3,7 +3,7 @@ module.exports = app => {
 
   const router = require("express").Router();
 
-  require('../middlewares/cors');
+  // const middlewareCors = require("../middlewares/cors.js");
 
   // Create a new Tutorial
   router.post("/", juegos.create);
