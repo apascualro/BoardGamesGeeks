@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:8081/api/juegos/';
 const httpOptionsPlain = {
   headers: new HttpHeaders({
     'Accept': 'text/plain',
-    'Content-Type': 'text/plain'
+    'Content-Type': 'application/json'
   }),
   'responseType': 'text'
 };
@@ -22,7 +22,7 @@ export class JuegoService {
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<any>{
-		return this.http.get('api/juegos/', {responseType: 'text'});
+		return this.http.get('api/juegos/');
 	}
 
 	get(id): Observable<any> {
