@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 //mismo port que en node.js
 const baseUrl = 'api/juegos/';
+
 
 const httpOptionsPlain = {
   headers: new HttpHeaders({
@@ -18,6 +20,7 @@ const httpOptionsPlain = {
 	providedIn: 'root'
 })
 export class JuegoService {
+	private API_URL= environment.API_URL;
 
 	constructor(private http: HttpClient) { }
 
