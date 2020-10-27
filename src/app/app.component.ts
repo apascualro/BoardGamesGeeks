@@ -19,9 +19,9 @@ export class AppComponent {
       console.log('Res', res);
       })
 
-    this.juegoSvc.get(this.id).subscribe((res) => {
-      console.log('Res', res);
-      })
+    // this.juegoSvc.get(this.id).subscribe((res) => {
+    //   console.log('Res', res);
+    //   })
     }
 
   }
