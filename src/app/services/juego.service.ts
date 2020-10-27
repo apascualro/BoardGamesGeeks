@@ -20,7 +20,7 @@ const httpOptionsPlain = {
 	providedIn: 'root'
 })
 export class JuegoService {
-	private API_URL= environment.API_URL;
+	private API_URL= environment.url;
 
 	constructor(private http: HttpClient) { }
 
