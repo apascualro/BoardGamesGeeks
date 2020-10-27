@@ -12,11 +12,11 @@ if (config.env === 'development') {
 }
 
 // // simple route
-// app.use(express.static('./dist/board-games-app'));
+app.use(express.static('./dist/board-games-app'));
 
-// app.get('/*', (req, res) =>
-//     res.sendFile('index.html', {root: 'dist/board-games-app/'}),
-// );
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/board-games-app/'}),
+);
 
 console.log('html');
 
