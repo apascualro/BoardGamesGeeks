@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //mismo port que en node.js
-const baseUrl = 'http://localhost:8081/api/juegos/';
+const baseUrl = 'api/juegos/';
 
 const httpOptionsPlain = {
   headers: new HttpHeaders({
@@ -22,13 +22,11 @@ export class JuegoService {
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<any>{
-		// return this.http.get(baseUrl);
 		return this.http.get('api/juegos/');
 	}
 
 	get(id): Observable<any> {
-		return this.http.get(`/${id}`);
-		// return this.http.get(`${baseUrl}/${id}`);
+		return this.http.get(`${baseUrl}/${id}`);
 	}
 
 	create(data): Observable<any> {

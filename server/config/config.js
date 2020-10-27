@@ -1,7 +1,7 @@
 
 //localhost
 const NODE_ENV = "localhost";
-const SERVER_PORT = "8081";
+const SERVER_PORT = "8080";
 
 const config = {
   env: NODE_ENV,
